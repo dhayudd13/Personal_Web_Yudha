@@ -1,0 +1,143 @@
+/* dark-mode.css */
+:root {
+  /* Warna untuk mode terang */
+  --bg-light: #f5f7fa;
+  --text-light: #333;
+  --card-light: #ffffff;
+  --accent-light: #4e6fff;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  
+  /* Warna untuk mode gelap */
+  --bg-dark: #121826;
+  --text-dark: #e0e0e0;
+  --card-dark: #1f2a44;
+  --accent-dark: #6a8cff;
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+}
+
+/* Gaya dasar yang akan diubah saat dark mode */
+body.dark-mode {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+  transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+/* Tambahkan gaya untuk elemen-elemen spesifik */
+.dark-mode .header,
+.dark-mode .navbar {
+  background-color: var(--card-dark) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode .footer {
+  background-color: var(--card-dark) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode .card,
+.dark-mode .panel,
+.dark-mode .box {
+  background-color: var(--card-dark) !important;
+  box-shadow: 0 5px 15px var(--shadow-dark) !important;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+  color: var(--accent-dark) !important;
+}
+
+.dark-mode a {
+  color: #6a8cff !important;
+}
+
+.dark-mode button,
+.dark-mode .btn {
+  background-color: #2d3e6d !important;
+  color: #e0e0e0 !important;
+  border-color: #4a5fb3 !important;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: #1f2a44 !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+/* Tombol toggle */
+.dark-mode-toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #a9b9ff, #4e6fff);
+  transition: .4s;
+  border-radius: 34px;
+  box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background: linear-gradient(90deg, #6a8cff, #4a5fb3);
+}
+
+input:checked + .slider:before {
+  transform: translateX(36px);
+  background-color: #f0f0f0;
+}
+
+.slider i {
+  position: absolute;
+  font-size: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.fa-sun {
+  left: 8px;
+  opacity: 0.8;
+}
+
+.fa-moon {
+  right: 8px;
+  opacity: 0.8;
+}
